@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AOA</title>
+    <title>LoginSite</title>
     <style>
         body{
             margin: 0;
@@ -41,71 +41,53 @@
 </head>
 <body>
     <ul class="navbar">
-        <li class="nav-item"><a href="#selection">selection</a></li>
-        <li class="nav-item"><a href="#insertion">insertion</a></li>
-        <li class="nav-item"><a href="#Binary">binary</a></li>
-        <li class="nav-item"><a href="#Merge">merge</a></li>
-        <li class="nav-item"><a href="#minmax">minmax</a></li>
-        <li class="nav-item"><a href="#Prims">Prims</a></li>
-        <li class="nav-item"><a href="#Kruskal">Kruskal</a></li>
-        <li class="nav-item"><a href="#quick">quick</a></li>
-        <li class="nav-item"><a href="#Fknapsack">Fknapsack</a></li>
-        <li class="nav-item"><a href="#nknapsack">nknapsack</a></li>
-        <li class="nav-item"><a href="#naive">naive</a></li>
-        <li class="nav-item"><a href="#warshall">All Pair warshall</a></li>
+        <li class="nav-item"><a href="#selection">Machine Code</a></li>
+        <li class="nav-item"><a href="#insertion">Expression Elimination</a></li>
+        <li class="nav-item"><a href="#Binary">Ending With</a></li>
+        <li class="nav-item"><a href="#minmax">Left Recursion</a></li>
+        <li class="nav-item"><a href="#Merge">Predictive parser</a></li>
+        <li class="nav-item"><a href="#Prims">Dead Code</a></li>
+        <li class="nav-item"><a href="#Kruskal">First</a></li>
+        <li class="nav-item"><a href="#quick">Dead Code elimination</a></li>
+        <li class="nav-item"><a href="#Fknapsack">Follow</a></li>
+        <li class="nav-item"><a href="#nknapsack">Lexical Inbetween</a></li>
+        <li class="nav-item"><a href="#naive">Common Subexp elimination</a></li>
+        <!-- <li class="nav-item"><a href="#warshall">All Pair warshall</a></li>
         <li class="nav-item"><a href="#sos">sumofsubset</a></li>
-        <li class="nav-item"><a href="#LCS">Longest CS</a></li>
-        <li class="nav-item"><a href="#Single">Single Dijkstra</a></li>
+        <li class="nav-item"><a href="#LCS">Longest CS</a></li> -->
+        <li class="nav-item"><a href="#Single">Left-Recursion</a></li>
     </ul>
     <!-- Code Block 1 -->
     <section id="selection">
-        <h1>Selection</h1>
+        <h1>Machine Code</h1>
         <div class="flex">
     <pre>
         <code id="codeBlock1">
-            #include <stdio.h> 
-                #include <conio.h> 
-                int main() 
-                { 
-                  int array[100], n, i, j,temp,c=0;  
-                  clrscr();   
-                  printf("Enter numbers of elements in array: ");
-                  c++;
-                  scanf("%d", &n); c++; 
-                  printf("Enter the %d elements: ", n);
-                  c++;   
-                  for (i= 0,c++;c++, i< n; i++,c++)  
-                  scanf("%d", &array[i]);     
-                  c++; 
-                  for (i= 0,c++;c++, i< n; i++,c++) 
-                  { 
-                    for (j= i+1,c++;c++, j< n; j++,c++) 
-                    {     
-                      if(array[i] > array[j]) 
-                      { 
-                        temp=array[i];  	   
-                         c++; 
-                        array[i] = array[j]; 
-                        c++; 
-                        array[j] = temp;  	   
-                         c++; 
-                      }       
-                      c++; 
-                    }    
-                    c++;     
-                  }    
-                  c++; 
-                  printf("Result after selection sort : ");
-                  c++; 
-                  for (i= 0,c++;c++, i< n; i++,c++) 
-                  { 
-                    printf("%d ", array[i]);
-                    c++;    
-                  }    
-                  c++;     
-                  printf("\ntime complexity of entire program is %d",c+1);   
-                  getch();     
-                  return 0; 
+            #include stdio.h
+                #include stdlib.h
+                #include string.h
+                #include conio.h
+                
+                void foo() {
+                    printf("Hello from foo!\n");
+                }
+                
+                int main() {
+                    // Pointer to the function
+                    void (*ptr)() = &foo;
+                
+                
+                    // Printing the machine code
+                    unsigned char *code = (unsigned char *)ptr;
+                    int i;
+                    clrscr();
+                    for (i = 0; i < 20; ++i) { // Print first 20 bytes of the function
+                    printf("%02x ", code[i]);
+                    }
+                    printf("\n");
+                    getch();
+                
+                    return 0;
                 }
         </code>
     </pre>
@@ -116,53 +98,59 @@
 
     <!-- Code Block 2 -->
     <section id="insertion">
-        <h1>Insertion</h1>
+        <h1>Expression Elimination</h1>
         <div class="flex">
     <pre>
         <code id="codeBlock2">
-            #include <stdio.h> 
-                #include <conio.h> 
-                int main() 
-                { 
-                  int array[100], n, i, j,temp,c=0;  
-                  clrscr();   
-                  printf("Enter numbers of elements in array: ");
-                  c++;
-                  scanf("%d", &n); c++; 
-                  printf("Enter the %d elements: ", n);
-                  c++;   
-                  for (i= 0,c++;c++, i< n; i++,c++)  
-                  scanf("%d", &array[i]);     
-                  c++; 
-                  for (i= 0,c++;c++, i< n; i++,c++) 
-                  { 
-                    for (j= i+1,c++;c++, j< n; j++,c++) 
-                    {     
-                      if(array[i] > array[j]) 
-                      { 
-                        temp=array[i];  	   
-                         c++; 
-                        array[i] = array[j]; 
-                        c++; 
-                        array[j] = temp;  	   
-                         c++; 
-                      }       
-                      c++; 
-                    }    
-                    c++;     
-                  }    
-                  c++; 
-                  printf("Result after selection sort : ");
-                  c++; 
-                  for (i= 0,c++;c++, i< n; i++,c++) 
-                  { 
-                    printf("%d ", array[i]);
-                    c++;    
-                  }    
-                  c++;     
-                  printf("\ntime complexity of entire program is %d",c+1);   
-                  getch();     
-                  return 0; 
+            #include < stdio.h  >
+                #include < stdlib.h >
+                #include < string.h >
+                #include < conio.h >
+                
+                // Structure to represent an expression node
+                typedef struct ExpressionNode {
+                    char* expression;
+                    char* result;
+                } ExpressionNode;
+                
+                // Function prototypes
+                int isSubexpressionCommon(ExpressionNode* expressions, int index1, int index2);
+                
+                int main() {
+                    int i , j ;
+                    // Example expressions
+                    ExpressionNode expressions[] = {
+                    {"a + b", "result1"},
+                    {"a + b", "result2"}, // Common subexpression with the previous one
+                    {"c - d", "result3"},
+                    {"a + b", "result4"}, // Common subexpression with the first one
+                
+                    };
+                
+                    int numExpressions = sizeof(expressions) / sizeof(expressions[0]);
+                
+                    // Identify and eliminate common subexpressions
+                    for ( i = 0; i < numExpressions; i++) {
+                    for (j = i + 1; j < numExpressions; j++) {
+                        if (isSubexpressionCommon(expressions, i, j)) {
+                        expressions[j].result = expressions[i].result;
+                        }
+                    }
+                    }
+                
+                    // Print optimized expressions
+                    printf("Optimized expressions:\n");
+                    for ( i = 0; i < numExpressions; i++) {
+                    printf("%s => %s\n", expressions[i].expression, expressions[i].result);
+                    }
+                    getch();
+                
+                    return 0;
+                }
+                
+                // Function to check if two expressions are the same
+                int isSubexpressionCommon(ExpressionNode* expressions, int index1, int index2) {
+                    return strcmp(expressions[index1].expression, expressions[index2].expression) == 0;
                 }
         </code>
     </pre>
@@ -171,58 +159,31 @@
 </section>
 
     <section id="Binary">
-        <h1>Binary Search</h1>
+        <h1>Ending With</h1>
         <div class="flex">
     <pre>
         <code id="codeBlock3">
-            #include<stdio.h>
-                #include<conio.h>
-                int c=0;
-                int binary_search(int A[], int key, int len) {
-                int high,low,mid;
-                low = 0;
-                c++;
-                high = len -1;
-                c++;
-                while (low <= high) {
-                c++;
-                mid = low + ((high - low) / 2);
-                c++;
-                if (A[mid] == key) {
-                return mid;
-                }c++;
-                if (key < A[mid]) {
-                high = mid - 1;
-                c++;
-                }
-                else {
-                c++;
-                low = mid + 1;
-                c++;
-                }
-                }c++;
-                return -1;
-                }
+            #include < stdio.h >
+                #include < string.h >
                 
-                int main() {
-                int a[10],key,position,size,i;
-                clrscr();
-                printf("Enter the size of the array: ");
-                scanf("%d",&size);
-                printf("Enter the elements of the array: ");
-                for(i=0;i < size;i++)
-                scanf("%d",&a[i]);
-                printf("Enter the element to be searched: ");
-                scanf("%d",&key);
-                position = binary_search(a, key, size);
-                if (position == -1){
-                printf("Not found");
-                return 0;
+                int isEnd(char str[]) {
+                    int len = strlen(str);
+                    if (len >= 3 && str[len - 3] == 'a' && str[len - 2] == 'b' && str[len - 1] == 'b') {
+                    printf("Valid String");
+                    }
+                    else {
+                       printf("Invalid string");
+                       }
+                    return 0;
                 }
-                printf("The position of the element is %d", position);
-                printf("\nTotal time complexity of program is: %d",c+1);
-                getch();
-                return 0;
+                int main() {
+                    char inputStr[100];
+                    clrscr();
+                    printf("Enter a string (ending with 'abb'): ");
+                    scanf("%s", inputStr);
+                    isEnd(inputStr);
+                    getch();
+                    return 0;
                 }
         </code>
     </pre>
@@ -231,89 +192,111 @@
 </section>
 
     <section id="Merge">
-        <h1>Merge sort</h1>
+        <h1>Predictive Parser</h1>
         <div class="flex">
     <pre>
         <code id="codeBlock4">
-            #include < stdio.h > 
-                #include < conio.h > 
-                int n=0,b[20],c=0;
-                void merge(int a[],int l,int mid, int r)
+            #include < stdio.h>
+                #include < string.h>
+                
+                char prol[3][10] = { "S", "A", "B"};
+                char pror[3][10] = { "aAb", "bBa", "b"};
+                char prod[3][10] = { "S->aAb", "A->bBa", "B->b"};
+                char first[3][3] = { "ab", "b", "b" };
+                char follow[3][3] = { "$", "a$", "b$" };
+                char table[5][4][10];
+                
+                int numr(char c)
                 {
-                int i,j,k;
-                c++;
-                i=l;
-                c++;
-                j=mid+1;
-                c++;
-                k=l;
-                c++;
-                while(i < =mid && j < =r)
-                {
-                if(a[i] < a[j])
-                {
-                b[k++]=a[i++];
-                c++;
+                   switch (c)
+                   {
+                      case 'S':
+                     return 0;
+                
+                      case 'A':
+                     return 1;
+                
+                      case 'B':
+                     return 2;
+                
+                      case 'a':
+                     return 0;
+                
+                      case 'b':
+                     return 1;
+                
+                      case '$':
+                     return 2;
+                   }
+                
+                   return (2);
                 }
-                else
+                
+                int main()
                 {
-                b[k++]=a[j++];
-                c++;
-                }
-                }
-                while(i < =mid)
-                {
-                b[k++]=a[i++];
-                c++;
-                }
-                while(j<=r)
-                {
-                b[k++]=a[j++];
-                c++;
-                }
-                for(i=l ,c++; c++,i<=r;i++,c++)
-                {
-                a[i]=b[i];
-                c++;
-                }
-                }
-                void mergesort(int a[],int l,int r)
-                {
-                int mid;
-                c++;
-                if(l < r)
-                {
-                mid=(l+r)/2;
-                c++;
-                mergesort(a,l,mid);
-                c++;
-                mergesort(a,mid+1,r);
-                c++;
-                merge(a,l,mid,r);
-                c++;
-                }
-                }
-                void main()
-                {
-                int i;
-                int a[20];
-                clrscr();
-                printf("Enter the number of elements in array: ");
-                scanf("%d",&n);
-                printf("\nEnter the elements of the array:");
-                for(i=0;i < n;i++)
-                {
-                scanf("%d",&a[i]);
-                }
-                mergesort(a,0,n-1);
-                printf("\nSorted Array: ");
-                for(i=0;i < n;i++)
-                {
-                printf("%d ",a[i]);
-                }
-                printf("\n");
-                printf("time complexity of functions are %d\n",c+1);
+                   int i, j, k;
+                   clrscr();
+                   for (i = 0; i < 5; i++)
+                      for (j = 0; j < 4; j++)
+                     strcpy(table[i][j], " ");
+                
+                   printf("The following grammar is used for Parsing Table:\n");
+                
+                   for (i = 0; i < 3; i++)
+                      printf("%s\n", prod[i]);
+                
+                   printf("\nPredictive parsing table:\n");
+                
+                   fflush(stdin);
+                
+                   for (i = 0; i < 3; i++)
+                   {
+                      k = strlen(first[i]);
+                      for (j = 0; j < 3; j++)
+                     if (first[i][j] != '@')
+                        strcpy(table[numr(prol[i][0]) + 1][numr(first[i][j]) + 1], prod[i]);
+                   }
+                
+                   for (i = 0; i < 3; i++)
+                   {
+                      if (strlen(pror[i]) == 1)
+                      {
+                     if (pror[i][0] == '@')
+                     {
+                        k = strlen(follow[i]);
+                        for (j = 0; j < k; j++)
+                           strcpy(table[numr(prol[i][0]) + 1][numr(follow[i][j]) + 1], prod[i]);
+                     }
+                      }
+                   }
+                
+                   strcpy(table[0][0], " ");
+                
+                   strcpy(table[0][1], "a");
+                
+                   strcpy(table[0][2], "b");
+                
+                   strcpy(table[0][3], "$");
+                
+                   strcpy(table[1][0], "S");
+                
+                   strcpy(table[2][0], "A");
+                
+                   strcpy(table[3][0], "B");
+                
+                   strcpy(table[4][0], "C");
+                
+                   printf("\n--------------------------------------------------------\n");
+                
+                   for (i = 0; i < 5; i++)
+                      for (j = 0; j < 4; j++)
+                      {
+                     printf("%-10s", table[i][j]);
+                     if (j == 3)
+                        printf("\n--------------------------------------------------------\n");
+                      }
                 getch();
+                return 0;
                 }
         </code>
     </pre>
@@ -322,12 +305,12 @@
 </section>
 
     <section id="minmax">
-        <h1>Minmax</h1>
+        <h1>Left Recursion</h1>
         <div class="flex">
     <pre>
         <code id="codeBlock5">
-            #include <stdio.h>
-                #include <conio.h>
+            #include < stdio.h >
+                #include < conio.h >
                 
                 void findMinMax(int arr[], int low, int high, int *min, int *max) {
                     int mid, min1, min2, max1, max2;
@@ -393,51 +376,72 @@
 </section>
 
     <section id="Prims">
-        <h1>Prims</h1>
+        <h1>Dead Code</h1>
         <div class="flex">
     <pre>
         <code id="codeBlock6">
-            #include<stdio.h>
-                #include<conio.h>
-                int a,b,u,v,n,i,j,ne=1;
-                int visited[10]={0},min,mincost=0,cost[10][10];
-                void main()
-                {
-                 clrscr();
-                 printf("\nEnter the number of nodes:");
-                 scanf("%d",&n);
-                 printf("\nEnter the adjacency matrix:\n");
-                 for(i=1;i<=n;i++)
-                 for(j=1;j<=n;j++)
-                 {
-                 scanf("%d",&cost[i][j]);
-                 if(cost[i][j]==0)
-                 cost[i][j]=999;
-                 }
-                 visited[1]=1;
-                 printf("\n");
-                 while(ne < n)
-                 {
-                 for(i=1,min=999;i<=n;i++)
-                 for(j=1;j<=n;j++)
-                 if(cost[i][j]< min)
-                 if(visited[i]!=0)
-                 {
-                 min=cost[i][j];
-                 a=u=i;
-                 b=v=j;
-                 }
-                 if(visited[u]==0 || visited[v]==0)
-                 {
-                 printf("\n Edge %d:(%d %d) cost:%d",ne++,a,b,min);
-                 mincost+=min;
-                 visited[b]=1;
-                 }
-                 cost[a][b]=cost[b][a]=999;
-                 }
-                 printf("\n Minimun cost=%d",mincost);
-                 getch();
-                 }
+            #include < stdio.h>
+                #include < stdbool.h>
+                
+                #define MAX_CODE_LINES 100
+                
+                // Function to perform dead code elimination
+                void performDCE(char code[][100], int numLines);
+                
+                int main() {
+                    char code[MAX_CODE_LINES][100] = {
+                        "int x = 5;",
+                        "int y = 10;",
+                        "int z = x + y;",
+                        "int a = 2 * x;",
+                        "int b = z + 5;",
+                        "y = 20;",
+                        "int c = z * y;"
+                    };
+                    int numLines = 7;
+                
+                    printf("Original Code:\n");
+                    for (int i = 0; i < numLines; i++) {
+                        printf("%s\n", code[i]);
+                    }
+                    
+                    performDCE(code, numLines);
+                    
+                    printf("\nCode after Dead Code Elimination:\n");
+                    for (int i = 0; i < numLines; i++) {
+                        if (code[i][0] != '\0') {
+                            printf("%s\n", code[i]);
+                        }
+                    }
+                
+                    return 0;
+                }
+                
+                // Function to perform dead code elimination
+                void performDCE(char code[][100], int numLines) {
+                    bool isUsed[MAX_CODE_LINES] = {false};
+                
+                    for (int i = numLines - 1; i >= 0; i--) {
+                        char *line = code[i];
+                        char var;
+                        int result = sscanf(line, "%*[^=]%c", &var);
+                        if (result == 1 && var >= 'a' && var <= 'z') {
+                            isUsed[i] = true;
+                            for (int j = i + 1; j < numLines; j++) {
+                                if (strstr(code[j], &var) != NULL) {
+                                    isUsed[i] = false;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                
+                    for (int i = 0; i < numLines; i++) {
+                        if (!isUsed[i]) {
+                            code[i][0] = '\0';
+                        }
+                    }
+                }
         </code>
     </pre>
     <button onclick="copyCode('codeBlock6')">Copy Code Block 6</button>
@@ -445,77 +449,63 @@
 </section>
 
     <section id="quick">
-        <h1>Quick Sort</h1>
+        <h1>Dead Code Elimination</h1>
         <div class="flex">
     <pre>
         <code id="codeBlock7">
-            #include <stdio.h>
-                #include <conio.h>
-                int c=0;
-                int partition (int a[], int low, int high)
-                { int j,pivot,i,t;
-                pivot = a[low];
-                c++;
-                i =low;
-                c++;
-                j= high;
-                c++;
-                while(i< j)
+            #include< stdio.h>
+                #include< conio.h>
+                #include< string.h>
+                char op[2],arg1[5],arg2[5],result[5];
+                void main()
                 {
-                while(a[i]<=pivot)
-                i++;
-                while(a[j]>pivot)
-                j--;
-                if(i< j)
-                {
-                t=a[i];
-                a[i]=a[j];
-                a[j]=t;
-                }
-                }
-                t=a[low];
-                a[low]=a[j];
-                a[j]=t;
-                return j;
-                }
-                void quick(int a[], int low, int high)
-                {
-                int m,i;
-                if(low< high)
-                {
-                m=partition(a,low,high);
-                quick(a,low,m-1);
-                quick(a,m+1,high);
-                }
-                }
-                void printArr(int a[], int n)
-                {
-                int i;
-                for (i = 0,c++;c++, i < n; i++,c++)
-                {
-                printf("%d ", a[i]);
-                c++;
-                }c++;
-                }
-                int main()
-                {
-                int a[100] , n,i;
-                clrscr();
-                printf("Enter the size : ");
-                scanf("%d",&n);
-                printf("\nEnter the elements:");
-                for(i=0; i< n; i++) {
-                scanf("%d", &a[i]);
-                }
-                printf("\nBefore sorting array elements are - \n");
-                printArr(a, n);
-                quick(a, 0, n - 1);
-                printf("\nAfter sorting array elements are - \n");
-                printArr(a, n);
-                printf("\nThe time complexity of the functions are: %d",c+1);
-                getch();
-                return 0;
-                }
+                  FILE *fp1,*fp2;
+                  fp1=fopen("input.txt","r");
+                  fp2=fopen("output.txt","w");
+                  while(!feof(fp1))
+                  {
+                
+                    fscanf(fp1,"%s%s%s%s",op,arg1,arg2,result);
+                    if(strcmp(op,"+")==0)
+                    {
+                      fprintf(fp2,"\nMOV R0,%s",arg1);
+                      fprintf(fp2,"\nADD R0,%s",arg2);
+                      fprintf(fp2,"\nMOV %s,R0",result);
+                    }
+                     if(strcmp(op,"*")==0)
+                    {
+                      fprintf(fp2,"\nMOV R0,%s",arg1);
+                      fprintf(fp2,"\nMUL R0,%s",arg2);
+                      fprintf(fp2,"\nMOV %s,R0",result);
+                    }
+                    if(strcmp(op,"-")==0)
+                    {
+                      fprintf(fp2,"\nMOV R0,%s",arg1);
+                      fprintf(fp2,"\nSUB R0,%s",arg2);
+                      fprintf(fp2,"\nMOV %s,R0",result);
+                    }
+                       if(strcmp(op,"/")==0)
+                    {
+                      fprintf(fp2,"\nMOV R0,%s",arg1);
+                      fprintf(fp2,"\nDIV R0,%s",arg2);
+                      fprintf(fp2,"\nMOV %s,R0",result);
+                    }
+                if(strcmp(op,"=")==0)
+                    {
+                      fprintf(fp2,"\nMOV R0,%s",arg1);
+                      fprintf(fp2,"\nMOV %s,R0",result);
+                    }
+                    }
+                    fclose(fp1);
+                    fclose(fp2);
+                    getch();
+                  }
+
+                  Input : 
+                  + a b t1
+* c d t2
+- t1 t2 t
+= t ? x
         </code>
     </pre>
     <button onclick="copyCode('codeBlock7')">Copy Code Block 2</button>
@@ -523,70 +513,71 @@
 </section>
 
     <section id="Fknapsack">
-        <h1>Fractional knapsack</h1>
+        <h1>Follow</h1>
         <div class="flex">
     <pre>
         <code id="codeBlock8">
-            #include<conio.h>
-                #include<stdio.h>
-                void knapsack(int n, float weight[], float profit[], float capacity) {
-                 float x[20], tp = 0;
-                 int i, j, u;
-                 u = capacity;
-                 for (i = 0; i < n; i++)
-                 x[i] = 0.0;
-                 for (i = 0; i < n; i++) {
-                 if (weight[i] > u)
-                 break;
-                 else {
-                 x[i] = 1.0;
-                 tp = tp + profit[i];
-                 u = u - weight[i];
-                 }
-                 }
-                 if (i < n)
-                 x[i] = u / weight[i];
-                 tp = tp + (x[i] * profit[i]);
-                 printf("\nMaximum profit is: %f",tp);
+            #include< stdio.h>
+                #include< string.h>
+                int n,m=0,p,i=0,j=0;
+                char a[10][10],f[10];
+                void follow(char c);
+                void first(char c);
+                int main()
+                {
+                int i,z;
+                char c,ch;
+                clrscr();
+                printf("Enter the no.of productions:");
+                scanf("%d",&n);
+                printf("Enter the productions:\n");
+                for(i=0;i<n;i++)
+                 scanf("%s%c",a[i],&ch);
+                do
+                {
+                 m=0;
+                 printf("Enter the element whose FOLLOW is to be found:");
+                 scanf("%c",&c);
+                 follow(c);
+                 printf("FOLLOW(%c) = { ",c);
+                 for(i=0;i<m;i++)
+                 printf("%c, ",f[i]);
+                 printf(" }\n");
+                 printf("Do you want to continue(0/1)?");
+                 scanf("%d%c",&z,&ch);
                 }
-                int main() {
-                 float weight[20],profit[20],capacity;
-                 int num,i,j;
-                 float ratio[20],temp;
-                 clrscr();
-                 printf("\nEnter the number of items : ");
-                 scanf("%d",&num);
-                 printf("\nEnter the weight of each item : ");
-                 for (i=0;i < num;i++){
-                 scanf("%f",&weight[i]);
-                 }
-                 printf("\nEnter the profit of each item : ");
-                 for (i=0;i< num;i++){
-                 scanf("%f",&profit[i]);
-                 }
-                 printf("\nEnter the capacity of knapsack : ");
-                 scanf("%f",&capacity);
-                 for (i=0;i< num;i++){
-                 ratio[i]=profit[i]/weight[i];
-                 }
-                 for (i=0;i< num;i++){
-                 for (j=i+1;j< num;j++){
-                 if (ratio[i]< ratio[j]) {
-                 temp=ratio[j];
-                 ratio[j]=ratio[i];
-                 ratio[i]=temp;
-                 temp=weight[j];
-                 weight[j]=weight[i];
-                 weight[i]=temp;
-                 temp=profit[j];
-                 profit[j]=profit[i];
-                 profit[i]=temp;
+                while(z==1);
+                return 0;
+                }
+                void follow(char c)
+                {
+                if(a[0][0]==c)f[m++]='$';
+                for(i=0;i<n;i++)
+                {
+                 for(j=2;j<strlen(a[i]);j++)
+                 {
+                 if(a[i][j]==c)
+                 {
+                 if(a[i][j+1]!='\0')first(a[i][j+1]);
+                 if(a[i][j+1]=='\0'&&c!=a[i][0])
+                 follow(a[i][0]);
                  }
                  }
+                }
+                }
+                void first(char c)
+                {
+                 int k;
+                 if(!(isupper(c)))f[m++]=c;
+                 for(k=0;k<n;k++)
+                 {
+                 if(a[k][0]==c)
+                 {
+                 if(a[k][2]=='$') follow(a[i][0]);
+                 else if(islower(a[k][2]))f[m++]=a[k][2];
+                 else first(a[k][2]);
                  }
-                 knapsack(num, weight, profit, capacity);
-                 getch();
-                 return(0);
+                 }
                 }
         </code>
     </pre>
@@ -595,48 +586,75 @@
 </section>
 
     <section id="nknapsack">
-        <h1>01 Knapsack</h1>
+        <h1>Lexical In between</h1>
         <div class="flex">
     <pre>
         <code id="codeBlock15">
-            #include<stdio.h>
-                #include<conio.h>
+            #include < stdio.h>
+                #include < conio.h>
+                #include < string.h>
                 
-                #define max(a, b) ((a) > (b) ? (a) : (b))
+                int lexical_analyzer(char *input_string) {
+                    int current_state = 0;
+                    char *ptr = input_string;
                 
-                int knapsack(int W, int wt[], int val[], int n) {
-                    int i, w;
-                    int K[100][100];
-                
-                    // Build table K[][] in bottom up manner
-                    for (i = 0; i <= n; i++) {
-                        for (w = 0; w <= W; w++) {
-                            if (i==0 || w==0)
-                                K[i][w] = 0;
-                            else if (wt[i-1] <= w)
-                                K[i][w] = max(val[i-1] + K[i-1][w-wt[i-1]], K[i-1][w]);
-                            else
-                                K[i][w] = K[i-1][w];
+                    while (*ptr != '\0') {
+                        switch (current_state) {
+                            case 0:
+                                if (*ptr == 'a')
+                                    current_state = 1;
+                                break;
+                            case 1:
+                                if (*ptr == 'b')
+                                    current_state = 2;
+                                else if (*ptr == 'a')
+                                    current_state = 1;
+                                else
+                                    current_state = 0;
+                                break;
+                            case 2:
+                                if (*ptr == 'b')
+                                    current_state = 3;
+                                else if (*ptr == 'a')
+                                    current_state = 1;
+                                else
+                                    current_state = 0;
+                                break;
+                            case 3:
+                                if (*ptr == 'a')
+                                    current_state = 4;
+                                else if (*ptr == 'b')
+                                    current_state = 2;
+                                else
+                                    current_state = 0;
+                                break;
+                            case 4:
+                                if (*ptr == 'a' || *ptr == 'b')
+                                    current_state = 4;
+                                else
+                                    current_state = 0;
+                                break;
+                            default:
+                                return 0;
                         }
+                        if (current_state == 4)
+                            return 1;
+                        ptr++;
                     }
-                
-                    // Return maximum value
-                    return K[n][W];
+                    
+                    return 0;
                 }
                 
                 int main() {
-                    int n, W, i;
-                    int val[100], wt[100];
-                    clrscr();
-                    printf("Enter number of items: ");
-                    scanf("%d", &n);
-                    printf("Enter profit and weight of each item:\n");
-                    for (i = 0; i < n; i++) {
-                    scanf("%d %d", &val[i], &wt[i]);
-                    }
-                    printf("Enter maximum weight of knapsack: ");
-                    scanf("%d", &W);
-                    printf("Maximum profit: %d", knapsack(W, wt, val, n));
+                    char input_string[100];
+                    printf("Enter a string to analyze: ");
+                    gets(input_string);
+                    
+                    if (lexical_analyzer(input_string))
+                        printf("String 'abba' is recognized\n");
+                    else
+                        printf("String 'abba' is not recognized\n");
+                
                     getch();
                     return 0;
                 }
@@ -647,91 +665,58 @@
 </section>
 
     <section id="Single">
-        <h1>Single SOurce Dijkstra</h1>
+        <h1>Left Recursion</h1>
         <div class="flex">
     <pre>
         <code id="codeBlock9">
-            #include<stdio.h>
-                #include<conio.h>
-                #define INFINITY 9999
-                #define MAX 10
-                 
-                void dijkstra(int G[MAX][MAX],int n,int startnode);
-                 
+            #include< stdio.h>
+                #include< stdlib.h>
+                #include< string.h>
+                
+                #define SIZE 20
+                
                 int main()
                 {
-                int G[MAX][MAX],i,j,n,u;
-                printf("Enter no. of vertices:");
-                scanf("%d",&n);
-                printf("\nEnter the adjacency matrix:\n");
-                for(i=0;i< n;i++)
-                for(j=0;j< n;j++)
-                scanf("%d",&G[i][j]);
-                printf("\nEnter the starting node:");
-                scanf("%d",&u);
-                dijkstra(G,n,u);
-                return 0;
-                }
-                 
-                void dijkstra(int G[MAX][MAX],int n,int startnode)
-                {
-                 
-                int cost[MAX][MAX],distance[MAX],pred[MAX];
-                int visited[MAX],count,mindistance,nextnode,i,j;
-                //pred[] stores the predecessor of each node
-                //count gives the number of nodes seen so far
-                //create the cost matrix
-                for(i=0;i< n;i++)
-                for(j=0;j< n;j++)
-                if(G[i][j]==0)
-                cost[i][j]=INFINITY;
-                else
-                cost[i][j]=G[i][j];
-                //initialize pred[],distance[] and visited[]
-                for(i=0;i< n;i++)
-                {
-                distance[i]=cost[startnode][i];
-                pred[i]=startnode;
-                visited[i]=0;
-                }
-                distance[startnode]=0;
-                visited[startnode]=1;
-                count=1;
-                while(count< n-1)
-                {
-                mindistance=INFINITY;
-                //nextnode gives the node at minimum distance
-                for(i=0;i< n;i++)
-                if(distance[i]< mindistance&&!visited[i])
-                {
-                mindistance=distance[i];
-                nextnode=i;
-                }
-                //check if a better path exists through nextnode
-                visited[nextnode]=1;
-                for(i=0;i< n;i++)
-                if(!visited[i])
-                if(mindistance+cost[nextnode][i]< distance[i])
-                {
-                distance[i]=mindistance+cost[nextnode][i];
-                pred[i]=nextnode;
-                }
-                count++;
-                }
-                 
-                //print the path and distance of each node
-                for(i=0;i< n;i++)
-                if(i!=startnode)
-                {
-                printf("\nDistance of node%d=%d",i,distance[i]);
-                printf("\nPath=%d",i);
-                j=i;
-                do
-                {
-                j=pred[j];
-                printf("<-%d",j);
-                }while(j!=startnode);
-                }
+                    char pro[SIZE], alpha[SIZE], beta[SIZE];
+                    int nont_terminal,i,j, index=3;
+                    clrscr();
+                    printf("Enter the Production as E->E|A: ");
+                    scanf("%s", pro);
+                
+                    nont_terminal=pro[0];
+                    if(nont_terminal==pro[index]) //Checking if the Grammar is LEFT RECURSIVE
+                    {
+                    //Getting Alpha
+                    for(i=++index,j=0;pro[i]!='|';i++,j++){
+                        alpha[j]=pro[i];
+                        //Checking if there is NO Vertical Bar (|)
+                        if(pro[i+1]==0){
+                        printf("This Grammar CAN'T BE REDUCED.\n");
+                        exit(0); //Exit the Program
+                        }
+                    }
+                    alpha[j]='\0'; //String Ending NULL Character
+                
+                    if(pro[++i]!=0) //Checking if there is Character after Vertical Bar (|)
+                    {
+                        //Getting Beta
+                        for(j=i,i=0;pro[j]!='\0';i++,j++){
+                        beta[i]=pro[j];
+                        }
+                        beta[i]='\0'; //String Ending NULL character
+                
+                        //Showing Output without LEFT RECURSION
+                        printf("\nGrammar Without Left Recursion: \n\n");
+                        printf(" %c->%s%c'\n", nont_terminal,beta,nont_terminal);
+                        printf(" %c'->%s%c'|#\n", nont_terminal,alpha,nont_terminal);
+                    }
+                    else
+                        printf("This Grammar CAN'T be REDUCED.\n");
+                    }
+                    else
+                    printf("\n This Grammar is not LEFT RECURSIVE.\n");
+                    getch();
+                    return 0;
                 }
         </code>
     </pre>
@@ -741,64 +726,61 @@
 
 
     <section id="Kruskal">
-        <h1>Kruskal</h1>
+        <h1>First</h1>
         <div class="flex">
     <pre>
         <code id="codeBlock10">
-            #include <stdio.h>
-                #include <conio.h>
-                #include <stdlib.h>
-                 int i, j, k, a, b, u, v, n, ne = 1;
-                 int min, mincost = 0, cost[9][9], parent[9];
-                 int find(int);
-                 int uni(int, int);
-                 void main() {
-                 clrscr();
-                 printf("\n\t Implementation of Kruskal's Algorithm\n");
-                 printf("\n Enter the no. of vertices:");
-                 scanf("%d", & n);
-                 printf("\n Enter the cost adjacency matrix:\n");
-                 for (i = 1; i <= n; i++) {
-                 for (j = 1; j <= n; j++) {
-                 scanf("%d", & cost[i][j]);
-                 if (cost[i][j] == 0)
-                 cost[i][j] = 999;
-                 }
-                 }
-                 printf("The edges of Minimum Cost Spanning Tree are\n");
-                 while (ne < n) {
-                 for (i = 1, min = 999; i <= n; i++) {
-                 for (j = 1; j <= n; j++) {
-                 if (cost[i][j] < min) {
-                 min = cost[i][j];
-                 a = u = i;
-                 b = v = j;
-                 }
-                 }
-                 }
-                 u = find(u);
-                 v = find(v);
-                 if (uni(u, v)) {
-                 printf("%d edge (%d,%d) =%d\n", ne++, a, b, min);
-                 mincost += min;
-                 }
-                 cost[a][b] = cost[b][a] = 999;
-                 }
-                 printf("\n \tMinimum cost = %d\n", mincost);
-                 getch();
-                 }
-                 int find(int i) {
-                 while (parent[i])
-                 i = parent[i];
-                 return i;
-                 }
-                 int uni(int i, int j) {
-                 if (i != j) {
-                 parent[j] = i;
-                 return 1;
-                 }
-                 return 0;
-                 }
+            #include< stdio.h>
+                #include< ctype.h>
+                
+                
+                void FIRST(char );
+                int count,n=0;
+                char prodn[10][10], first[10];
+                
+                main()
+                {
+                int i,choice;
+                char c,ch;
+                clrscr();
+                printf("How many productions ? :");
+                scanf("%d",&count);
+                printf("Enter %d productions (epsilon= $) :\n\n",count);
+                for(i=0;i<count;i++)
+                scanf("%s%c",prodn[i],&ch);
+                do
+                {
+                n=0;
+                printf("Element :");
+                scanf("%c",&c);
+                FIRST(c);
+                printf("\n FIRST(%c)= { ",c);
+                for(i=0;i<n;i++)
+                printf("%c, ",first[i]);
+                printf("}\n");
+                
+                printf("press 1 to continue : ");
+                scanf("%d%c",&choice,&ch);
+                }
+                while(choice==1);
+                return 0;
+                
+                }
+                
+                void FIRST(char c)
+                {
+                int j;
+                if(!(isupper(c)))first[n++]=c;
+                for(j=0;j<count;j++)
+                {
+                if(prodn[j][0]==c)
+                {
+                if(prodn[j][2]=='$') first[n++]='$';
+                else if(islower(prodn[j][2]))first[n++]=prodn[j][2];
+                else FIRST(prodn[j][2]);
+                }
+                }
+                }
         </code>
     </pre>
     <button onclick="copyCode('codeBlock10')">Copy Code Block 10</button>
@@ -811,40 +793,106 @@
 <pre>
     <code id="codeBlock11">
         #include <stdio.h>
-            #include <conio.h>
+            #include <stdlib.h>
             #include <string.h>
             
-            void naiveStringMatch(char* text, char* pattern) {
-                int textLength = strlen(text);
-                int patternLength = strlen(pattern);
-                int i;
-                for (i = 0; i <= textLength - patternLength; i++) {
-                    int j;
-                    for (j = 0; j < patternLength; j++) {
-                        if (text[i + j] != pattern[j]) {
-                            break;
-                        }
-                    }
+            #define MAX_EXPR_LENGTH 100
+            #define HASH_TABLE_SIZE 101
             
-                    if (j == patternLength) {
-                        printf("Pattern found at index %d\n", i);
-                    }
+            typedef struct ExpressionNode {
+                char expr[MAX_EXPR_LENGTH];
+                struct ExpressionNode* next;
+            } ExpressionNode;
+            
+            typedef struct {
+                ExpressionNode* head;
+            } HashTableNode;
+            
+            int hash(const char *str) {
+                int hash = 0;
+                while (*str) {
+                    hash = (hash << 5) + *str++;
                 }
+                return hash % HASH_TABLE_SIZE;
+            }
+            
+            void insert(HashTableNode* hashTable, const char* expr) {
+                int index = hash(expr);
+                ExpressionNode* newNode = (ExpressionNode*)malloc(sizeof(ExpressionNode));
+                if (newNode == NULL) {
+                    printf("Memory allocation failed!\n");
+                    exit(1);
+                }
+                strcpy(newNode->expr, expr);
+                newNode->next = hashTable[index].head;
+                hashTable[index].head = newNode;
+            }
+            
+            int contains(HashTableNode* hashTable, const char* expr) {
+                int index = hash(expr);
+                ExpressionNode* current = hashTable[index].head;
+                while (current != NULL) {
+                    if (strcmp(current->expr, expr) == 0) {
+                        return 1; // Found
+                    }
+                    current = current->next;
+                }
+                return 0; // Not found
             }
             
             int main() {
-                char text[] = "AABAACAADAABAAABAA";
-                char pattern[] = "AABA";
+                HashTableNode hashTable[HASH_TABLE_SIZE];
+                int numExpr;
+                int i;
+                clrscr();
+                printf("Enter the number of expressions: ");
+                scanf("%d", &numExpr);
             
-                clrscr(); // Clear the screen
             
-                naiveStringMatch(text, pattern);
+                for (i = 0; i < HASH_TABLE_SIZE; i++) {
+                    hashTable[i].head = NULL;
+                }
             
-                getch(); // Wait for a key press before exiting
+                // Input expressions
+                printf("Enter the expressions:\n");
+                for (i = 0; i < numExpr; i++) {
+                    char expr[MAX_EXPR_LENGTH];
+                    printf("Expression %d: ", i + 1);
+                    scanf("%s", expr);
             
+                    if (!contains(hashTable, expr)) {
+                        insert(hashTable, expr);
+                    }
+                }
+            
+                // Output optimized expressions
+                printf("\nOptimized expressions:\n");
+                for (i = 0; i < HASH_TABLE_SIZE; i++) {
+                    ExpressionNode* current = hashTable[i].head;
+                    while (current != NULL) {
+                        printf("%s\n", current->expr);
+                        current = current->next;
+                    }
+                }
+            
+                // Free memory
+                for (i = 0; i < HASH_TABLE_SIZE; i++) {
+                    ExpressionNode* current = hashTable[i].head;
+                    while (current != NULL) {
+                        ExpressionNode* temp = current;
+                        current = current->next;
+                        free(temp);
+                    }
+                }
+                getch();
                 return 0;
             }
-            
+
+            Input :
+
+            x = 11
+y = 11 * 24  
+z = x * 24
     </code>
 </pre>
 <button onclick="copyCode('codeBlock11')">Copy Code Block 11</button>
