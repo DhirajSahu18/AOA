@@ -531,7 +531,7 @@
                 printf("Enter the no.of productions:");
                 scanf("%d",&n);
                 printf("Enter the productions:\n");
-                for(i=0;i<n;i++)
+                for(i=0;i< n;i++)
                  scanf("%s%c",a[i],&ch);
                 do
                 {
@@ -540,7 +540,7 @@
                  scanf("%c",&c);
                  follow(c);
                  printf("FOLLOW(%c) = { ",c);
-                 for(i=0;i<m;i++)
+                 for(i=0;i< m;i++)
                  printf("%c, ",f[i]);
                  printf(" }\n");
                  printf("Do you want to continue(0/1)?");
@@ -552,9 +552,9 @@
                 void follow(char c)
                 {
                 if(a[0][0]==c)f[m++]='$';
-                for(i=0;i<n;i++)
+                for(i=0;i< n;i++)
                 {
-                 for(j=2;j<strlen(a[i]);j++)
+                 for(j=2;j< strlen(a[i]);j++)
                  {
                  if(a[i][j]==c)
                  {
@@ -569,7 +569,7 @@
                 {
                  int k;
                  if(!(isupper(c)))f[m++]=c;
-                 for(k=0;k<n;k++)
+                 for(k=0;k< n;k++)
                  {
                  if(a[k][0]==c)
                  {
@@ -746,7 +746,7 @@
                 printf("How many productions ? :");
                 scanf("%d",&count);
                 printf("Enter %d productions (epsilon= $) :\n\n",count);
-                for(i=0;i<count;i++)
+                for(i=0;i< count;i++)
                 scanf("%s%c",prodn[i],&ch);
                 do
                 {
@@ -755,7 +755,7 @@
                 scanf("%c",&c);
                 FIRST(c);
                 printf("\n FIRST(%c)= { ",c);
-                for(i=0;i<n;i++)
+                for(i=0;i< n;i++)
                 printf("%c, ",first[i]);
                 printf("}\n");
                 
@@ -771,7 +771,7 @@
                 {
                 int j;
                 if(!(isupper(c)))first[n++]=c;
-                for(j=0;j<count;j++)
+                for(j=0;j< count;j++)
                 {
                 if(prodn[j][0]==c)
                 {
